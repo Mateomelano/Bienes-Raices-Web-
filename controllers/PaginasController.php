@@ -65,12 +65,12 @@ class PaginasController {
             $mail = new PHPMailer();
             // configure an SMTP
             $mail->isSMTP();
-            $mail->Host = 'smtp.mailtrap.io';
+            $mail->Host = $_ENV['EMAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = '1449261596514e';
-            $mail->Password = 'c468b81ab4a5a9';
+            $mail->Username = $_ENV['EMAIL_USER'];
+            $mail->Password = $_ENV['EMAIL_PASSWORD'];
             $mail->SMTPSecure = 'tls';
-            $mail->Port = 2525;
+            $mail->Port = $_ENV['EMAIL_PORT'];
             
             $mail->setFrom('admin@bienesraices.com', $respuestas['nombre']);
             $mail->addAddress('admin@bienesraices.com', 'BienesRaices.com');
